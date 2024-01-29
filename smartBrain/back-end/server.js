@@ -57,6 +57,20 @@ app.post('/register', (req, res) => {
   res.json(database.users[database.users.length - 1])
 })
 
+app.get('/profile/:id', (req, res) => {
+  const { id } = req.params
+  let found = false
+  database.users.forEach(user => {
+    if (user.id == id) {
+      found = true
+      res.json(user)
+    }
+  })
+  if (!found) {
+    res.status(404).json('no such user')
+  }
+})
+
 app.listen(PORT, () => {
   console.log('app is listening on http://localhost:3000')
 })
