@@ -2,10 +2,10 @@ const http = require('http')
 
 const express = require('express')
 
-const APP = express()
+const app = express()
 const PORT = process.env.PORT || 3000
 
-APP.use(express.json())
+app.use(express.json())
 
 const database = {
   users: [
@@ -28,13 +28,11 @@ const database = {
   ],
 }
 
-APP.get('/', (req, res) => {
-  res.send('this is working')
+app.get('/', (req, res) => {
+  res.json(database.users)
 })
 
-APP.post('/signin', (req, res) => {
-  console.log(req.body)
-  console.log('------------------------')
+app.post('/signin', (req, res) => {
   if (
     req.body.email === database.users[0].email &&
     req.body.password === database.users[0].password
@@ -45,6 +43,20 @@ APP.post('/signin', (req, res) => {
   }
 })
 
-APP.listen(PORT, () => {
-  console.log('App is listening on http://localhost:3000')
+app.post('/register', (req, res) => {
+  const { email, name, password } = req.body
+  database.users.push({
+    id: '3',
+    name,
+    email,
+    password,
+    entries: 0,
+    joined: new Date(),
+  })
+
+  res.json(database.users[database.users.length - 1])
+})
+
+app.listen(PORT, () => {
+  console.log('app is listening on http://localhost:3000')
 })
