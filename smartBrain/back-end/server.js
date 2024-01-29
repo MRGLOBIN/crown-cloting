@@ -3,7 +3,7 @@ const http = require('http')
 const express = require('express')
 
 const APP = express()
-const PORT = process.env || 3000
+const PORT = process.env.PORT || 3000
 
 APP.use(express.json())
 
@@ -33,8 +33,10 @@ APP.get('/', (req, res) => {
 })
 
 APP.post('/signin', (req, res) => {
+  console.log(req.body)
+  console.log('------------------------')
   if (
-    res.body.email === database.users[0].email &&
+    req.body.email === database.users[0].email &&
     req.body.password === database.users[0].password
   ) {
     res.json('success')
