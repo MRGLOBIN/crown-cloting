@@ -2,6 +2,7 @@ import React from 'react'
 import Card from './components/card'
 import { robots } from './constants/robots'
 
+import 'tachyons'
 import './App.css'
 
 function App() {
