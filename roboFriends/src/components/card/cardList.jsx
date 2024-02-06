@@ -1,8 +1,7 @@
 import React from 'react'
-import Card from '../card/card'
-import { robots } from '../../constants/robots'
+import Card from './card'
 
-const CardList = () => {
+const CardList = ({ robots }) => {
   return (
     <div>
       {robots.map(robot => {
