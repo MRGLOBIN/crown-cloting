@@ -1,7 +1,5 @@
 import { Component } from 'react'
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 class App extends Component {
@@ -31,10 +29,14 @@ class App extends Component {
           type="search"
           placeholder="Search monster"
           onChange={event => {
-            this.setState({ filter: event.target.value })
+            const filteredSearch = event.target.value.toLowerCase()
+            const filteredMonster = this.state.monsters.filter(monster => {
+              return monster.name.toLowerCase().includes(filteredSearch)
+            })
+            this.setState({ monsters: filteredMonster })
           }}
         />
-        {this.state.monsters.filter(monster => {
+        {this.state.monsters.map(monster => {
           return (
             <div key={monster.id}>
               <h1>{monster.name}</h1>
