@@ -7,7 +7,7 @@ class App extends Component {
     super()
     this.state = {
       monsters: [],
-      filter: '',
+      filteredMonster: []
     }
   }
 
