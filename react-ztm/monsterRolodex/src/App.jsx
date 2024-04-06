@@ -1,8 +1,9 @@
 import { Component } from 'react'
 
 import CardList from './components/cardList/cardList.components'
-import './App.css'
 import SearchBox from './components/searchBox/searchBox.components'
+
+import './App.css'
 
 class App extends Component {
   constructor() {
@@ -37,6 +38,7 @@ class App extends Component {
 
     return (
       <>
+        <h1 className="app-title">Monster Rolodex</h1>
         <SearchBox
           onChangeHandler={onSearchChange}
           placeholder="Search Monsters"
