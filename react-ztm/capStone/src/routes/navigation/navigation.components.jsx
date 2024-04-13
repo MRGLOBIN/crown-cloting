@@ -1,7 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom'
 
-import "./navigation.styles.scss";
-import CrownLogo from "../../assets/crown.svg";
+import './navigation.styles.scss'
+import CrownLogo from '../../assets/crown.svg'
 
 const Navigation = () => {
   return (
@@ -14,14 +14,14 @@ const Navigation = () => {
           <Link className="nav-link" to="shop">
             Shop
           </Link>
-          <Link className="nav-link" to="sign-in">
+          <Link className="nav-link" to="auth">
             Sign In
           </Link>
         </div>
       </div>
       <Outlet />
     </>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation
