@@ -1,10 +1,11 @@
-import SignInForm from '../../components/signInForm copy/signInForm.component'
+import SignInForm from '../../components/signInForm/signInForm.component'
 import SignupForm from '../../components/signupForm/signupForm.component'
+
+import './auth.styles.scss'
 
 const Auth = () => {
   return (
-    <div className=".auth-constainer">
-      <h1>Sign In</h1>
+    <div className="auth-constainer">
       <SignInForm />
       <SignupForm />
     </div>

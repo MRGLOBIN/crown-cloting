@@ -4,8 +4,8 @@ import {
   createUserDocumnetFromAuth,
   signInWithGooglePopup,
 } from '../../utils/firebase.utils'
-import FormInput from '../formInput/formInput.component'
 
+import FormInput from '../formInput/formInput.component'
 import Button from '../button/button.component'
 
 import './signInForm.styles.scss'
@@ -33,19 +33,24 @@ const SignInForm = () => {
     event.preventDefault()
 
     try {
-      const response = await SignInAuthUserWithEmailAndPassword(email, password)
-      console.log(response)
+      const { user } = await SignInAuthUserWithEmailAndPassword(email, password)
       resetFormFiled()
     } catch (error) {
-      console.log(error.message)
+      switch (error.code) {
+        case 'auth/wrong-password':
+          alert('Incorrect Password for email')
+          break
+        case 'auth/user-not-found':
+          alert('No user associated with this email')
+          break
+        default:
+          console.log(error.message)
+      }
     }
   }
 
   const GoogleSignIn = async () => {
-    const response = await signInWithGooglePopup()
-
-    console.log(response)
-    const userDocRef = createUserDocumnetFromAuth(response.user)
+    await signInWithGooglePopup()
   }
 
   return (
@@ -73,7 +78,7 @@ const SignInForm = () => {
 
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
-          <Button type="submit" buttonType="google" onClick={GoogleSignIn}>
+          <Button type="button" buttonType="google" onClick={GoogleSignIn}>
             Google Sign In
           </Button>
         </div>
