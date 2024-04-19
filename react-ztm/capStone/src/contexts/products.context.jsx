@@ -4,7 +4,7 @@ import { createContext, useState } from 'react'
 
 export const ProductContext = createContext({
   products: [],
-  setproducts: () => [],
+  setproducts: () => {},
 })
 
 export const ProductProvider = ({ children }) => {
