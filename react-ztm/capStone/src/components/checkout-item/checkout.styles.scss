@@ -27,10 +27,13 @@
 
     .arrow {
       cursor: pointer;
-    }
 
+      &::selection {
+        background-color: transparent;
+      }
+    }
     .value {
-      margin: 0 10px;
+      margin: 0px 10px;
     }
   }
 
