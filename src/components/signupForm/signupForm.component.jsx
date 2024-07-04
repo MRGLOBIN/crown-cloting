@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
   createAuthUserWithEmailAndPassword,
-  createUserDocumnetFromAuth,
+  createUserDocumentFromAuth,
 } from '../../utils/firebase.utils'
 import FormInput from '../formInput/formInput.component'
 
@@ -49,47 +49,47 @@ const SignupForm = () => {
   }
 
   return (
-    <div className="sign-up-container">
+    <div className='sign-up-container'>
       <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
-          label="Display Name"
-          type="text"
+          label='Display Name'
+          type='text'
           required
           onChange={onChangeHandler}
-          name="displayName"
+          name='displayName'
           value={displayName}
         />
 
         <FormInput
-          label="Email"
-          type="email"
+          label='Email'
+          type='email'
           required
           onChange={onChangeHandler}
-          name="email"
+          name='email'
           value={email}
         />
 
         <FormInput
-          label="Password"
-          type="password"
+          label='Password'
+          type='password'
           required
           onChange={onChangeHandler}
-          name="password"
+          name='password'
           value={password}
         />
 
         <FormInput
-          label="Confirm Password"
-          type="password"
+          label='Confirm Password'
+          type='password'
           required
           onChange={onChangeHandler}
-          name="confirmPassword"
+          name='confirmPassword'
           value={confirmPassword}
         />
 
-        <Button type="submit">Sign Up</Button>
+        <Button type='submit'>Sign Up</Button>
       </form>
     </div>
   )

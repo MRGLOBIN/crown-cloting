@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
   SignInAuthUserWithEmailAndPassword,
-  createUserDocumnetFromAuth,
+  createUserDocumentFromAuth,
   signInWithGooglePopup,
 } from '../../utils/firebase.utils'
 
@@ -54,31 +54,31 @@ const SignInForm = () => {
   }
 
   return (
-    <div className="sign-up-container">
+    <div className='sign-up-container'>
       <h2>Already have an account?</h2>
       <span>Sign In with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
-          label="Email"
-          type="email"
+          label='Email'
+          type='email'
           required
           onChange={onChangeHandler}
-          name="email"
+          name='email'
           value={email}
         />
 
         <FormInput
-          label="Password"
-          type="password"
+          label='Password'
+          type='password'
           required
           onChange={onChangeHandler}
-          name="password"
+          name='password'
           value={password}
         />
 
-        <div className="buttons-container">
-          <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType="google" onClick={GoogleSignIn}>
+        <div className='buttons-container'>
+          <Button type='submit'>Sign In</Button>
+          <Button type='button' buttonType='google' onClick={GoogleSignIn}>
             Google Sign In
           </Button>
         </div>
